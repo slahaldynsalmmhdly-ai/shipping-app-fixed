@@ -363,6 +363,41 @@ const App: React.FC = () => {
         setToasts(prevToasts => prevToasts.filter(toast => toast.id !== id));
     };
 
+    // Auto-login if token exists
+    useEffect(() => {
+        const checkAuth = async () => {
+            const token = localStorage.getItem('authToken');
+            if (token && !user) {
+                try {
+                    const res = await fetch(`${API_BASE_URL}/api/v1/users/me`, {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    
+                    if (res.ok) {
+                        const userData = await res.json();
+                        setUser({
+                            _id: userData._id,
+                            name: userData.name,
+                            email: userData.email,
+                            userType: userData.userType
+                        });
+                        setUserType(userData.userType);
+                        setScreen("home", "fade");
+                        handleAuthSuccess(token, userData._id, userData.userType);
+                    } else {
+                        // Token invalid, remove it
+                        localStorage.removeItem('authToken');
+                    }
+                } catch (error) {
+                    console.error('Auto-login failed:', error);
+                    localStorage.removeItem('authToken');
+                }
+            }
+        };
+        
+        checkAuth();
+    }, []);
+
     useEffect(() => {
         // Ping الخادم كل 10 دقائق لإبقائه مستيقظاً
         const interval = setInterval(() => {
