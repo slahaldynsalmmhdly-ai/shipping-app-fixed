@@ -1,0 +1,122 @@
+/* components/home/GeneralPost.css */
+.general-post .general-post-header {
+    padding: 12px 16px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Aligns icon container and name container to the top */
+    gap: 16px;
+}
+
+.general-post .post-header-actions {
+    position: static;
+    flex-shrink: 0; /* Prevent icons from shrinking */
+}
+
+/* This is the definitive fix: A complete, specific rule for the identity container */
+.general-post .post-identity {
+    display: flex;
+    align-items: flex-start; /* Aligns avatar and name to the top */
+    gap: 12px;
+    flex: 1; /* Take up all available space */
+    min-width: 0; /* CRITICAL: Allow this container to shrink below its content's intrinsic width */
+}
+
+.general-post .post-avatar {
+    width: 44px;
+    height: 44px;
+    border: none;
+}
+
+.general-post .post-author-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0; /* CRITICAL: Allow this nested container to also shrink */
+}
+
+.general-post .post-company-name {
+    font-size: 15px;
+    margin: 0;
+    /* Truncation styles */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Ensure it doesn't try to be wider than its already shrinking container */
+    max-width: 100%;
+}
+
+.general-post .post-time {
+    position: static;
+    font-size: 12px;
+}
+
+.general-post-body {
+    padding: 0;
+}
+
+.general-post-body .post-text-content {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-primary-color);
+    padding: 4px 16px 12px;
+    margin: 0;
+    white-space: pre-wrap; /* To respect newlines */
+}
+
+.post-media-container {
+    max-height: 60vh;
+    background-color: var(--component-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.post-media-content {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Use cover to fill the container and crop */
+}
+
+/* --- Embedded Post Styles --- */
+.embedded-post-container {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    margin: 8px 16px 12px;
+    overflow: hidden;
+}
+
+.embedded-header {
+    background-color: var(--component-bg-color);
+    padding-bottom: 8px; /* Less padding for embedded header */
+}
+
+.embedded-header .post-avatar {
+    width: 36px;
+    height: 36px;
+}
+
+.embedded-header .post-company-name {
+    font-size: 14px;
+}
+
+.embedded-header .post-time {
+    font-size: 11px;
+}
+
+.embedded-ad-content .post-details {
+    padding: 12px 16px;
+    grid-template-columns: 1fr; /* Stack details in one column */
+}
+
+.embedded-ad-content .post-description {
+    padding: 0 16px 12px;
+    font-size: 14px;
+}
+
+.embedded-ad-content .post-media-container {
+    border-radius: 0;
+    margin-bottom: 0;
+}

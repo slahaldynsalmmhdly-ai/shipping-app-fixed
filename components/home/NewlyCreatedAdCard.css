@@ -1,0 +1,103 @@
+.new-ad-card {
+    background-color: var(--bg-secondary-color);
+    border-radius: 16px;
+    margin: 8px 0;
+    box-shadow: 0 4px 15px var(--shadow-color-light);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    animation: fadeInAndScale 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes fadeInAndScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.new-ad-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    background-color: var(--component-bg-color);
+}
+
+.new-ad-card-header h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--component-text-color);
+    margin: 0;
+}
+
+.new-ad-dismiss-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--text-secondary-color);
+}
+
+.new-ad-dismiss-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.new-ad-card-body {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.new-ad-info-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.new-ad-info-icon {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.new-ad-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0; /* Important for text truncation */
+}
+
+.new-ad-info-text .label {
+    font-size: 13px;
+    color: var(--text-secondary-color);
+}
+
+.new-ad-info-text .value {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.new-ad-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 16px;
+}
+
+.new-ad-grid-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0; /* Important for grid item content truncation */
+}

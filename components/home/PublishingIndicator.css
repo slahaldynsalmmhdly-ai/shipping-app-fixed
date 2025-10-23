@@ -1,0 +1,79 @@
+.publishing-indicator-container {
+  padding: 0;
+  background-color: var(--bg-secondary-color);
+  box-shadow: 0 4px 12px var(--shadow-color-light);
+  transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  max-height: 100px; /* An arbitrary large enough value */
+  overflow: hidden;
+  position: relative;
+}
+
+.publishing-indicator-container.hiding {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.publishing-indicator-content {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.success-icon-wrapper {
+    color: #2ecc71; /* Success green color */
+    flex-shrink: 0;
+}
+
+.success-icon-wrapper svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+
+.publishing-indicator-text {
+    flex-grow: 1;
+}
+
+.publishing-indicator-text h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary-color);
+  margin: 0 0 4px;
+}
+
+.publishing-indicator-text p {
+  font-size: 13px;
+  color: var(--text-secondary-color);
+  margin: 0;
+}
+
+.publishing-indicator-loader {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  width: 100%;
+  background-color: var(--component-bg-color);
+  overflow: hidden;
+  direction: ltr; /* Ensure progress bar animates correctly regardless of page direction */
+}
+
+.progress-bar-indeterminate {
+  height: 100%;
+  width: 40%; /* The moving bar width */
+  background-color: var(--primary-blue);
+  border-radius: 2px;
+  animation: indeterminate-progress 2.5s infinite ease-in-out;
+}
+
+@keyframes indeterminate-progress {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(350%); /* (100 / 40) * 100 + 100 */
+  }
+}

@@ -1,0 +1,267 @@
+
+/* --- Create Ad Screen Specific Styles --- */
+.ad-creation-container.app-container {
+  padding-top: 0; /* Header will have its own padding */
+  justify-content: flex-start;
+  background-color: var(--bg-secondary-color);
+  display: flex; /* Ensure flex context for children */
+  flex-direction: column;
+}
+
+.ad-creation-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 12px 16px;
+  width: 100%;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--bg-secondary-color);
+  z-index: 5;
+}
+
+.ad-creation-header h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary-color);
+  margin: 0;
+}
+
+.ad-header-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 2;
+}
+
+.ad-header-btn.close-btn {
+    position: absolute;
+    left: 16px; /* RTL: end */
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ad-header-btn.close-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+
+/* --- Main Content & Form --- */
+.ad-creation-container .app-content {
+  width: 100%;
+  padding: 16px 20px 120px; /* Add bottom padding for footer */
+  justify-content: flex-start;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.ad-creation-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-section h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary-color);
+    margin: 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row-reverse; /* For RTL layout */
+    gap: 20px;
+    width: 100%;
+}
+.form-row > .form-group {
+    flex: 1;
+}
+
+/* --- New Input Field Style --- */
+.ad-creation-container .form-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: transparent;
+  padding: 10px 4px;
+  border-radius: 0;
+  border-bottom: 1px solid var(--border-color);
+  transition: border-color 0.2s ease-in-out;
+}
+.ad-creation-container .form-group:focus-within {
+  border-bottom: 2px solid var(--primary-blue);
+  padding-bottom: 9px;
+}
+.ad-creation-container .form-group svg {
+  color: var(--text-secondary-color);
+}
+
+/* --- Textarea --- */
+.ad-creation-container .form-group-textarea {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.ad-creation-container .form-group-textarea:focus-within {
+    border-bottom: 2px solid var(--primary-blue);
+    padding-bottom: 9px;
+}
+
+.ad-creation-container .form-group-textarea label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-secondary-color);
+    padding: 0 4px;
+}
+
+.ad-creation-form textarea {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: var(--font-family);
+    font-size: 16px;
+    color: var(--text-primary-color);
+    resize: none;
+    min-height: 80px;
+    padding: 0 4px;
+}
+.ad-creation-form textarea::placeholder {
+  color: var(--light-gray);
+  font-weight: 400;
+}
+
+
+/* --- New Toggle Switch for Featuring Ad --- */
+.feature-toggle-section {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--component-bg-color);
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.feature-toggle-text {
+    flex: 1;
+    padding-left: 16px;
+}
+
+.feature-toggle-text h2 {
+    border: none;
+    padding: 0;
+    margin: 0 0 4px 0;
+    font-size: 16px;
+}
+
+.feature-toggle-text p {
+    font-size: 13px;
+    color: var(--text-secondary-color);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--light-gray);
+  transition: .4s;
+  border-radius: 28px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: var(--primary-blue);
+}
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+
+/* --- Sticky Footer --- */
+.ad-creation-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 20px 20px;
+    background-color: var(--bg-secondary-color);
+    border-top: 1px solid var(--border-color);
+    box-shadow: 0 -4px 15px var(--shadow-color-light);
+    z-index: 10;
+}
+
+.publish-btn-footer {
+    width: 100%;
+    padding: 16px;
+    border-radius: 12px;
+    border: none;
+    background-color: var(--primary-blue);
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    font-family: var(--font-family);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.publish-btn-footer:disabled {
+    background-color: var(--light-gray);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.publish-btn-footer:active:not(:disabled) {
+    transform: scale(0.98);
+    background-color: #2980b9;
+}

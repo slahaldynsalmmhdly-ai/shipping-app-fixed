@@ -1,0 +1,44 @@
+{
+  "countries": [
+    {
+      "country": "المملكة العربية السعودية",
+      "cities": ["الرياض", "جدة", "مكة", "المدينة المنورة", "الدمام", "الخبر", "الظهران", "بريدة", "تبوك", "أبها", "خميس مشيط", "حائل", "جازان", "نجران", "ينبع", "الجبيل", "الطائف", "الهفوف", "القطيف", "عرعر"]
+    },
+    {
+      "country": "الإمارات العربية المتحدة",
+      "cities": ["دبي", "أبوظبي", "الشارقة", "عجمان", "رأس الخيمة", "الفجيرة", "أم القيوين", "العين", "خورفكان", "دبا الحصن", "الرويس", "جبل علي", "الذيد", "غياثي", "كلباء", "ليوا", "حتا", "السلع", "مصفح", "مدينة زايد"]
+    },
+    {
+      "country": "مصر",
+      "cities": ["القاهرة", "الإسكندرية", "الجيزة", "الأقصر", "أسوان", "شرم الشيخ", "الغردقة", "بورسعيد", "السويس", "الإسماعيلية", "المنصورة", "طنطا", "الزقازيق", "أسيوط", "سوهاج", "المنيا", "قنا", "دمياط", "كفر الشيخ", "العريش"]
+    },
+    {
+      "country": "الأردن",
+      "cities": ["عمان", "الزرقاء", "إربد", "العقبة", "السلط", "الكرك", "معان", "مأدبا", "جرش", "عجلون", "الطفيلة", "الرمثا", "الفحيص", "الحصن", "الصافي", "الشونة الجنوبية", "دير علا", "الأغوار", "البتراء", "وادي موسى"]
+    },
+    {
+      "country": "الكويت",
+      "cities": ["مدينة الكويت", "حولي", "السالمية", "الفروانية", "الجهراء", "الأحمدي", "مبارك الكبير", "خيطان", "بيان", "الرابية", "الصباحية", "الفحيحيل", "المنقف", "الوفرة", "العبدلي", "الصبية", "الخيران", "بنيدر", "الزور", "الشعيبة"]
+    },
+    {
+      "country": "الولايات المتحدة الأمريكية",
+      "cities": ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "San Jose", "Austin", "Jacksonville", "San Francisco", "Indianapolis", "Columbus", "Seattle", "Denver", "Washington, D.C.", "Boston", "Miami"]
+    },
+    {
+      "country": "المملكة المتحدة",
+      "cities": ["London", "Birmingham", "Glasgow", "Liverpool", "Bristol", "Manchester", "Sheffield", "Leeds", "Edinburgh", "Leicester", "Coventry", "Bradford", "Cardiff", "Belfast", "Nottingham", "Stoke-on-Trent", "Newcastle upon Tyne", "Southampton", "Derby", "Plymouth"]
+    },
+    {
+      "country": "ألمانيا",
+      "cities": ["Berlin", "Hamburg", "Munich", "Cologne", "Frankfurt", "Stuttgart", "Düsseldorf", "Dortmund", "Essen", "Leipzig", "Bremen", "Dresden", "Hanover", "Nuremberg", "Duisburg", "Bochum", "Wuppertal", "Bielefeld", "Bonn", "Münster"]
+    },
+    {
+      "country": "فرنسا",
+      "cities": ["Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Nantes", "Strasbourg", "Montpellier", "Bordeaux", "Lille", "Rennes", "Reims", "Le Havre", "Saint-Étienne", "Toulon", "Grenoble", "Dijon", "Angers", "Nîmes", "Villeurbanne"]
+    },
+    {
+      "country": "اليابان",
+      "cities": ["Tokyo", "Yokohama", "Osaka", "Nagoya", "Sapporo", "Fukuoka", "Kobe", "Kyoto", "Kawasaki", "Saitama", "Hiroshima", "Sendai", "Chiba", "Kitakyushu", "Sakai", "Hamamatsu", "Niigata", "Shizuoka", "Okayama", "Kumamoto"]
+    }
+  ]
+}

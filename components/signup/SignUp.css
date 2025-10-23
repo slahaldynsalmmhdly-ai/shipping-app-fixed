@@ -1,0 +1,159 @@
+/* --- Sign Up Screen Specific Styles --- */
+.signup-screen-container {
+  justify-content: flex-start;
+  padding: 0;
+  text-align: center;
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Re-use map background from SplashScreen */
+.signup-screen-container .map-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.2;
+}
+.signup-screen-container .map-background svg {
+  width: 150%;
+  height: 150%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.signup-screen-container .map-background .map-path {
+  stroke: var(--white);
+  fill: none;
+  stroke-width: 1;
+}
+
+.signup-screen-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  width: 100%;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.signup-screen-header .back-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  color: var(--white);
+  transform: scaleX(-1); /* RTL arrow */
+}
+.signup-screen-header .back-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.signup-screen-header .logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* Center the logo */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.signup-screen-header .logo-icon {
+  width: 28px;
+  height: 28px;
+}
+.signup-screen-header .logo-text {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.signup-screen-content {
+  width: 100%;
+  padding: 0 24px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  overflow-y: auto;
+}
+
+.signup-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.signup-error {
+    background-color: rgba(231, 76, 60, 0.2);
+    color: #ffdddd;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 16px;
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    width: 100%;
+}
+
+.signup-screen-form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.signup-screen-form .form-group {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 6px 12px; /* Changed to match splash screen */
+}
+
+.signup-screen-form .form-group svg {
+  color: var(--white);
+}
+
+.signup-screen-form .form-group input {
+  color: var(--white);
+  font-size: 15px; /* Changed to match splash screen */
+}
+
+.signup-screen-form .form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Adjust password meter for the theme */
+.signup-screen-form .password-strength-meter .strength-bar {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+.signup-screen-form .password-strength-meter .strength-text {
+    color: var(--white);
+    opacity: 0.9;
+}
+
+
+.signup-screen-footer {
+  padding: 20px 24px;
+  margin-top: auto; /* Pushes footer to the bottom */
+  background: transparent;
+  width: 100%;
+  z-index: 2;
+}
+
+.signup-screen-footer .btn-primary {
+    background-color: var(--white);
+    color: var(--primary-blue);
+    border: 1px solid var(--white);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}

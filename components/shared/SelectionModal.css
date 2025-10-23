@@ -1,0 +1,61 @@
+/* components/shared/SelectionModal.css */
+.selection-modal-content {
+    max-height: 60vh; /* Slide up to 60% of the screen height */
+    padding: 20px 0 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.selection-modal-header {
+    text-align: center;
+    padding: 0 24px 16px;
+    flex-shrink: 0;
+}
+.selection-modal-header h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary-color);
+    margin: 0;
+}
+
+.selection-modal-search {
+    flex-shrink: 0;
+    padding: 0 24px;
+    margin-bottom: 16px;
+}
+.selection-modal-search .form-group {
+    background-color: var(--component-bg-color);
+    padding: 10px 14px;
+    border-radius: 14px;
+}
+
+.selection-modal-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 0 24px;
+}
+.selection-modal-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.selection-modal-list li {
+    padding: 14px 4px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary-color);
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s;
+}
+.selection-modal-list li:hover {
+    background-color: var(--component-bg-color);
+}
+.selection-modal-list li:last-child {
+    border-bottom: none;
+}
+.selection-modal-list .no-results {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-secondary-color);
+}

@@ -1,0 +1,247 @@
+.shipment-post {
+  background-color: var(--bg-secondary-color);
+  box-shadow: 0 2px 8px var(--shadow-color-light);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* NEW: Ensure content respects the rounded corners */
+}
+
+.post-header-actions {
+  display: flex;
+  gap: 0; /* Reduced gap for tighter packing */
+  align-items: center; /* Aligns icons to the center for balance */
+  flex-shrink: 0;
+}
+
+.post-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px; /* Slightly larger touch target */
+  color: var(--text-secondary-color);
+  transition: color 0.2s, background-color 0.2s;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-icon-btn:hover {
+  color: var(--text-primary-color);
+  background-color: var(--component-bg-color);
+}
+
+.post-icon-btn svg {
+  width: 22px; /* Standardized icon size */
+  height: 22px;
+}
+
+
+/* Layout properties are now handled by GeneralPost.css for consistency */
+.post-identity {
+  cursor: pointer;
+}
+
+.post-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-color);
+}
+
+
+/* Truncation properties are now handled by GeneralPost.css */
+.post-company-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary-color);
+}
+
+.post-body {
+  padding: 16px;
+  padding-top: 0;
+}
+
+.post-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding-bottom: 16px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  min-width: 0; /* Allow item to shrink and truncate content */
+}
+
+.detail-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* MODIFIED: New wrapper for text */
+.detail-item div {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  min-width: 0;
+}
+
+/* MODIFIED: Added shrink */
+.detail-item span {
+  color: var(--text-secondary-color);
+  flex-shrink: 0;
+}
+
+/* MODIFIED: Changed layout */
+.detail-item strong {
+  color: var(--text-primary-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* NEW STYLES */
+.post-description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-primary-color);
+    padding: 0 0 16px;
+    margin: 0;
+    white-space: pre-wrap;
+    margin-bottom: 16px;
+}
+
+.post-media-container {
+    max-height: 60vh;
+    background-color: var(--component-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.post-media-content {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.post-title-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.post-ad-type {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-secondary-color);
+    background-color: var(--component-bg-color);
+    padding: 3px 10px;
+    border-radius: 8px;
+    margin: 0;
+}
+
+/* --- New Post Menu --- */
+.post-menu-wrapper {
+  position: relative;
+  z-index: 5; /* Keep menu above other post content */
+}
+
+.post-menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 10;
+}
+
+.post-menu-popover {
+  position: absolute;
+  top: calc(100% + 4px); /* Position below the button */
+  left: 0; /* Align to the left of the wrapper (RTL end) */
+  background-color: var(--bg-secondary-color);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  z-index: 11;
+  width: 250px;
+  padding: 8px;
+  animation: fadeInMenu 0.2s ease-out;
+  transform-origin: top left;
+}
+
+/* Arrow pointing up */
+.post-menu-popover::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 16px; /* Position arrow above the menu icon */
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--bg-secondary-color);
+  filter: drop-shadow(0 -1px 0px var(--border-color));
+}
+
+@keyframes fadeInMenu {
+  from { opacity: 0; transform: translateY(-10px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.post-menu-popover ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-menu-popover li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary-color);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-radius: 8px;
+  text-align: right;
+}
+
+.post-menu-popover li:hover {
+  background-color: var(--component-bg-color);
+}
+
+.post-menu-popover li.danger {
+  color: var(--danger-color);
+}
+.post-menu-popover li.danger:hover {
+  background-color: rgba(231, 76, 60, 0.1);
+}
+
+.post-menu-popover li svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+hr.menu-separator {
+    border: none;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 4px 8px;
+}

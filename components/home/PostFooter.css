@@ -1,0 +1,82 @@
+.post-footer {
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+    margin: 0;
+}
+
+/* This is the new container for all stats */
+.post-stats {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    justify-content: flex-end; /* Align to the right (start in RTL) */
+    align-items: center;
+    gap: 16px;
+    height: 42px; /* Use a fixed height to guarantee no movement */
+    box-sizing: border-box;
+    /* Padding is implicitly handled by alignment */
+}
+
+.stat-item {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.stat-count {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--text-secondary-color);
+}
+
+
+/* Container for the action buttons */
+.post-footer-actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-action-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.2s ease;
+    font-family: var(--font-family);
+}
+
+.footer-action-btn:hover:not(:disabled) {
+    background-color: var(--component-bg-color);
+}
+
+.footer-action-btn:disabled {
+    color: var(--light-gray);
+    cursor: not-allowed;
+}
+
+.footer-action-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-action-btn.liked {
+    color: var(--danger-color);
+}
+
+.footer-action-btn.liked svg {
+    fill: var(--danger-color);
+}

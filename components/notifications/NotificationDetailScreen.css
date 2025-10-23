@@ -1,0 +1,61 @@
+/* --- Notification Detail Screen --- */
+.notification-detail-container {
+    background-color: var(--bg-secondary-color);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.notification-detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 12px 24px;
+    width: 100%;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-secondary-color);
+    z-index: 5;
+}
+
+.notification-detail-header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary-color);
+}
+
+.notification-detail-header .back-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%) scaleX(-1);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    color: var(--text-primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notification-detail-header .back-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.notification-detail-content {
+    padding: 0;
+    overflow-y: hidden; /* Let inner components handle scrolling */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-height: 0; /* Prevents flexbox overflow issues */
+}
+
+.notification-detail-post-area {
+    padding-bottom: 8px;
+    border-bottom: 8px solid var(--bg-color);
+    flex-shrink: 0;
+}

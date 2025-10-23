@@ -1,0 +1,75 @@
+.confirmation-modal-content {
+    /* Centering and Sizing */
+    top: 50%;
+    bottom: auto; /* Override bottom: 0 from Modal.css */
+    left: 50%;
+    right: auto; /* Override right: 0 from Modal.css */
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 380px;
+    border-radius: 24px;
+
+    /* Animation Override */
+    animation: slideUpAndCenter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Flex layout */
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes slideUpAndCenter {
+    from {
+        transform: translate(-50%, 100vh);
+    }
+    to {
+        transform: translate(-50%, -50%);
+    }
+}
+
+
+.confirmation-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--component-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.confirmation-icon svg {
+    width: 32px;
+    height: 32px;
+    color: var(--danger-color);
+}
+
+.confirmation-modal-content h2 {
+    margin-bottom: 4px;
+}
+
+.confirmation-modal-content .modal-subtitle {
+    margin-bottom: 24px;
+}
+
+.confirmation-actions {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+.confirmation-actions .btn {
+    flex: 1;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: #ffffff;
+}
+
+.btn-danger:active {
+    transform: translateY(2px) scale(0.98);
+    box-shadow: 0 2px 10px var(--danger-shadow-color);
+}

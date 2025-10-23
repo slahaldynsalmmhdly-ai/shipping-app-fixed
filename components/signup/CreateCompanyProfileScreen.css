@@ -1,0 +1,317 @@
+/* components/signup/CreateCompanyProfileScreen.css */
+
+.create-profile-screen-container .app-content {
+  padding: 0;
+  align-items: stretch; /* Allow children to stretch full width */
+  overflow-y: auto;
+}
+
+.create-profile-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100%;
+}
+
+.create-profile-main-content {
+    flex-grow: 1;
+    padding: 0 24px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* --- New Header Layout --- */
+.create-profile-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 10px;
+}
+
+.create-profile-header .back-button {
+    position: static;
+    transform: none;
+    justify-self: start;
+}
+
+.create-profile-header .logo-container {
+    position: static;
+    transform: none;
+    grid-column: 2;
+    text-align: center;
+}
+
+.header-create-btn {
+    justify-self: end; /* Align to the end (left in RTL) */
+    background: transparent;
+    border: none;
+    color: white;
+    font-family: var(--font-family);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.header-create-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* --- Image Upload Section --- */
+.create-profile-image-section {
+  width: 100%;
+  position: relative;
+  margin-bottom: 70px; /* Reduced to pull form up */
+  overflow: visible; /* Allow avatar to overflow */
+}
+
+.create-profile-cover-upload {
+    width: 100%;
+    height: 180px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 16px; /* Apply radius here */
+}
+
+.create-profile-cover-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.create-profile-cover-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.create-profile-cover-placeholder svg {
+    width: 32px;
+    height: 32px;
+}
+.create-profile-cover-placeholder span {
+    font-weight: 700;
+}
+
+.create-profile-avatar-upload {
+    position: absolute;
+    bottom: -65px; /* Adjusted for new size */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: 130px; /* Increased size */
+    height: 130px; /* Increased size */
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 4px solid #3a8fce;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.create-profile-avatar-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.create-profile-avatar-placeholder {
+    color: white;
+    text-align: center;
+}
+.create-profile-avatar-placeholder svg {
+    width: 40px;
+    height: 40px;
+}
+.create-profile-avatar-placeholder p {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+
+/* --- Form Content --- */
+.create-profile-form-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-section.fleet-section {
+  margin-top: 12px; /* Adds space above, "moving it down" */
+}
+
+.form-section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0;
+    text-align: right;
+    opacity: 0.9;
+}
+
+/* Location Inputs */
+.create-profile-form-content .form-group {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 6px 12px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.create-profile-form-content .form-group svg {
+    color: white;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.create-profile-form-content .form-group input {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: var(--font-family);
+    font-size: 15px;
+    color: white;
+    width: 100%;
+}
+
+.create-profile-form-content .form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.create-profile-form-content .form-row {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 16px;
+    width: 100%;
+}
+
+.create-profile-form-content .form-row > .form-group {
+    flex: 1;
+}
+
+
+/* Fleet Uploader */
+.fleet-image-uploader {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 12px;
+    padding: 12px; /* Reduced padding */
+}
+.fleet-image-list {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scrollbar-width: none;
+}
+.fleet-image-list::-webkit-scrollbar {
+    display: none;
+}
+.fleet-image-item, .add-fleet-image-btn {
+    width: 80px; /* Made smaller */
+    height: 80px; /* Made smaller */
+    flex-shrink: 0;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.add-fleet-image-btn {
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add-fleet-image-btn svg {
+    width: 32px;
+    height: 32px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.fleet-image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.remove-fleet-img-btn {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+.remove-fleet-img-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* NEW: Styles for Description Textarea */
+.create-profile-form-content .form-group-textarea {
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.create-profile-form-content .form-group-textarea textarea {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-family: var(--font-family);
+    font-size: 15px;
+    color: white;
+    resize: vertical;
+    min-height: 80px;
+}
+
+.create-profile-form-content .form-group-textarea textarea::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+.create-profile-screen-container { overflow: visible !important; height: 100%; }
+.create-profile-screen-container .app-content { overflow-y: scroll !important; height: 100%; -webkit-overflow-scrolling: touch; }
+.create-profile-form-wrapper { overflow-y: auto; max-height: 100vh; }
+.create-profile-main-content { overflow-y: auto; max-height: calc(100vh - 60px); }
+.create-profile-form-content .form-group input, .create-profile-form-content .form-group-textarea textarea { pointer-events: auto !important; user-select: text !important; -webkit-user-select: text !important; -moz-user-select: text !important; -ms-user-select: text !important; touch-action: manipulation !important; cursor: text !important; }
+.create-profile-form-content .form-group, .create-profile-form-content .form-group-textarea { pointer-events: auto !important; z-index: 10; position: relative; }
+.create-profile-form-content .form-group input:focus, .create-profile-form-content .form-group-textarea textarea:focus { outline: 2px solid rgba(255, 255, 255, 0.3); outline-offset: 2px; }

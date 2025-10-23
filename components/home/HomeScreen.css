@@ -1,0 +1,411 @@
+/* --- Home Screen Specific Styles --- */
+.home-container.app-container {
+  justify-content: flex-start;
+  background-color: var(--bg-color); /* The main background is now the standard app color */
+}
+
+.home-container .app-content {
+  flex-grow: 1;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-header {
+  padding: 12px 20px 0;
+  width: 100%;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #3498db, #2980b9); /* Header is now the blue part */
+  display: flex;
+  flex-direction: column;
+  /* gap: 16px; */ /* Removed gap to bring elements closer */
+}
+
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px; /* Add margin to space out from create-ad container */
+}
+
+.home-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-icon {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  color: #ffffff;
+  position: relative; /* Add position relative for badge positioning */
+}
+
+.header-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.notification-badge {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background-color: var(--danger-color);
+    color: white;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: bold;
+    border: 1px solid white;
+    line-height: 1;
+}
+
+
+/* Add padding to account for the new global bottom nav */
+.home-content-feed {
+    padding-bottom: 70px;
+}
+
+.create-ad-container {
+  background: var(--white);
+  color: var(--primary-blue);
+  padding: 4px 20px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  width: auto;
+  font-family: var(--font-family);
+  margin: 0 -18px;
+}
+
+.create-ad-container:active {
+  background: #f0f0f0;
+}
+
+.create-ad-container svg {
+  width: 22px;
+  height: 22px;
+  color: var(--primary-blue);
+}
+
+/* New Stories Container */
+.stories-container {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    /* Allow scrolling to the edges within the padded header */
+    margin: 12px -20px 0;
+    padding: 12px 2px 12px;
+    overflow-y: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    /* Hide scrollbar for a cleaner look */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+.stories-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+
+/* NEW: Feedback message within stories container */
+.stories-feedback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    height: 90px;
+    width: 150px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.stories-feedback.error {
+    color: #ffdddd;
+    background: rgba(231, 76, 60, 0.3);
+}
+
+
+/* MODIFIED: The feed is now a simple container with vertical gaps. */
+.shipment-feed {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0; /* Vertical padding only */
+  background-color: transparent;
+  flex-grow: 1;
+}
+
+
+/* New Post Animation */
+@keyframes newPostEnterAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.new-post-enter {
+  animation: newPostEnterAnimation 0.5s ease-out forwards;
+}
+
+/* --- Suggested Companies Section --- */
+.suggested-companies-section {
+  padding: 16px 20px;
+  background-color: var(--bg-secondary-color);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.suggested-companies-section h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary-color);
+  margin-bottom: 16px;
+  padding: 0;
+}
+
+.suggested-companies-container {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 4px 2px 12px;
+    margin: 0 -20px;
+    /* Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+}
+
+.suggested-companies-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+/* --- Company Suggestion Card --- */
+.company-suggestion-card {
+    background-color: var(--bg-secondary-color);
+    border-radius: 16px;
+    padding: 16px;
+    width: 180px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 12px var(--shadow-color-light);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.company-suggestion-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px var(--shadow-color);
+}
+
+.card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    z-index: 0;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+}
+
+.card-background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.card-background-color {
+    width: 100%;
+    height: 100%;
+    background-color: var(--component-bg-color);
+}
+
+.card-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--bg-secondary-color);
+    margin-top: 20px;
+    z-index: 1;
+    background-color: var(--bg-secondary-color);
+}
+
+.card-rating-summary {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    color: #f1c40f; /* Star color */
+}
+
+.card-rating-summary .star-rating {
+    display: flex;
+}
+
+.card-rating-summary .star-rating svg {
+    width: 14px;
+    height: 14px;
+}
+
+.card-rating-number {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-secondary-color);
+    padding-top: 1px;
+}
+
+
+.card-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary-color);
+    margin: 4px 0 4px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-category {
+    font-size: 12px;
+    color: var(--text-secondary-color);
+    margin: 0 0 12px;
+}
+
+/* NEW: Chat button style */
+.card-chat-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 10px;
+    background: var(--component-bg-color);
+    color: var(--primary-blue);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-family: var(--font-family);
+}
+.card-chat-btn:hover {
+    background-color: var(--light-gray);
+}
+.card-chat-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+/* --- Skeleton for Company Suggestion Card --- */
+.company-suggestion-card-skeleton {
+    background-color: var(--bg-secondary-color);
+    border-radius: 16px;
+    padding: 16px;
+    width: 180px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.company-suggestion-card-skeleton .skeleton {
+  background-color: var(--component-bg-color);
+  position: relative;
+  overflow: hidden;
+}
+.company-suggestion-card-skeleton .skeleton::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(90deg, transparent 0, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0.5) 60%, transparent);
+  animation: shimmer 1.5s infinite;
+}
+body.dark-mode .company-suggestion-card-skeleton .skeleton::after {
+   background-image: linear-gradient(90deg, transparent 0, rgba(255,255,255,0.05) 20%, rgba(255,255,255,0.1) 60%, transparent);
+}
+@keyframes shimmer { 100% { transform: translateX(100%); } }
+
+.skeleton-card-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 50px;
+    background-color: var(--component-bg-color);
+}
+.skeleton-card-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-top: 20px;
+    z-index: 1;
+    border: 3px solid var(--bg-secondary-color);
+}
+
+.skeleton-card-rating {
+    height: 14px;
+    width: 90px;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+.skeleton-card-line {
+    height: 14px;
+    border-radius: 4px;
+    margin-top: 4px;
+}
+.skeleton-card-btn {
+    width: 100%;
+    height: 38px;
+    border-radius: 10px;
+    margin-top: 12px;
+}
+
+/* Re-add star-rating styles from profile for the new component */
+.star-rating {
+    display: flex;
+    color: #f1c40f; /* Yellow for stars */
+}
+.star-rating svg {
+    width: 18px;
+    height: 18px;
+}

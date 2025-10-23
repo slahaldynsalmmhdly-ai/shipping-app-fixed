@@ -1,0 +1,137 @@
+.delete-reason-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 16px 0 24px;
+    width: 100%;
+}
+
+.reason-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: var(--font-family);
+    border: 2px solid var(--border-color);
+    background-color: transparent;
+    color: var(--text-primary-color);
+    border-radius: 12px;
+    text-align: right;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.reason-btn:hover {
+    background-color: var(--component-bg-color);
+    border-color: var(--light-gray);
+}
+
+.reason-btn.selected {
+    background-color: var(--component-bg-color);
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.modal-btn:disabled {
+    background-color: var(--light-gray);
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.7;
+}
+
+/* Other Reason Sheet */
+.other-reason-sheet-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1001; /* Above the main modal overlay */
+  animation: fadeInOverlayDelete 0.3s ease-out;
+}
+
+.other-reason-sheet-content {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-secondary-color);
+  padding: 20px 24px 30px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  box-shadow: 0 -5px 30px var(--shadow-color);
+  animation: slideUpSheetDelete 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 50vh;
+}
+
+@keyframes fadeInOverlayDelete {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUpSheetDelete {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+
+.other-reason-sheet-content h3 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary-color);
+  margin: 0;
+}
+
+.other-reason-sheet-content textarea {
+  width: 100%;
+  min-height: 100px;
+  border: none;
+  background: var(--component-bg-color);
+  border-radius: 12px;
+  padding: 12px;
+  font-family: var(--font-family);
+  font-size: 15px;
+  color: var(--text-primary-color);
+  resize: vertical;
+  outline: none;
+}
+
+.other-reason-sheet-content textarea::placeholder {
+    color: var(--text-secondary-color);
+}
+
+.other-reason-send-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--primary-blue);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start; /* For RTL */
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.other-reason-send-btn:disabled {
+  background-color: var(--light-gray);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.other-reason-send-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.other-reason-send-btn svg {
+  width: 24px;
+  height: 24px;
+}

@@ -1,0 +1,256 @@
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  animation: fadeInOverlay 0.3s ease-out;
+  will-change: opacity;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  position: fixed; /* Changed from absolute to fixed */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--bg-secondary-color);
+  padding: 20px 24px 40px;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  box-shadow: 0 -5px 30px var(--shadow-color);
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  /* --- Performance Optimizations --- */
+  will-change: transform;
+  transform: translate3d(0, 0, 0); /* Keep for hardware acceleration */
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* --- Fullscreen Modal Styles --- */
+.modal-content.fullscreen-modal-content {
+  top: 0;
+  height: 100%;
+  border-radius: 0;
+  padding: 0; /* Remove padding to allow header/footer to span full width */
+  display: flex;
+  flex-direction: column;
+  animation: slideUpFullScreen 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes slideUpFullScreen {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+
+.modal-handle-bar {
+  width: 40px;
+  height: 5px;
+  background-color: var(--light-gray);
+  border-radius: 3px;
+  margin: 0 auto 20px;
+}
+
+.modal-content h2 {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text-primary-color);
+}
+
+.modal-subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-secondary-color);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-btn {
+  margin-top: 8px;
+}
+
+.modal-error {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: var(--danger-color);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 16px;
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+.modal-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--text-secondary-color);
+    font-size: 13px;
+    margin: 20px 0;
+}
+.modal-divider::before, .modal-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--border-color);
+}
+.modal-divider:not(:empty)::before {
+    margin-left: .5em; /* For RTL */
+}
+.modal-divider:not(:empty)::after {
+    margin-right: .5em; /* For RTL */
+}
+
+.btn-google {
+    background-color: var(--bg-secondary-color);
+    color: var(--text-primary-color);
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+.btn-google:active {
+    background-color: var(--component-bg-color);
+    transform: translateY(1px);
+    box-shadow: none;
+}
+.btn-google img {
+    width: 20px;
+    height: 20px;
+}
+
+/* --- Create Ad & Account Type Modal Styles --- */
+
+@keyframes fadeInAndScaleUpModal {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.create-ad-modal-content {
+    /* Override bottom-sheet styles */
+    top: 50%;
+    bottom: auto;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    border-radius: 24px;
+    padding: 20px 24px 30px;
+    animation: fadeInAndScaleUpModal 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* NEW: Frosted glass / transparent blue styles */
+    background-color: rgba(41, 128, 185, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* NEW: Update text colors for transparent background */
+.create-ad-modal-content h2,
+.create-ad-modal-content .modal-subtitle {
+    color: var(--white);
+}
+
+.create-ad-modal-content .modal-handle-bar {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+.account-type-options {
+    display: flex;
+    flex-direction: column; /* CHANGED: from row to column */
+    gap: 12px; /* CHANGED: Reduced gap */
+    margin-top: 16px;
+}
+
+.account-type-option-btn {
+    /* CHANGED: from card to list item layout */
+    display: flex;
+    flex-direction: row-reverse; /* For RTL: icon on the right */
+    align-items: center;
+    justify-content: flex-start; /* Align items to the start (right in RTL) */
+    gap: 16px;
+    padding: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: right;
+    font-family: var(--font-family);
+    /* Removed min-height, flex:1 */
+}
+
+.account-type-option-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: none; /* remove card hover effect */
+    box-shadow: none; /* remove card hover effect */
+}
+
+.account-type-option-btn:active {
+    transform: scale(0.98); /* Keep a subtle active state */
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.option-icon {
+    /* CHANGED: Remove circular background */
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white); /* CHANGED: icon color to white */
+    border: none;
+    flex-shrink: 0;
+}
+
+.option-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.account-type-option-btn h3 {
+    font-size: 16px; /* CHANGED: slightly larger font */
+    font-weight: 700;
+    margin: 0;
+    color: var(--white); /* CHANGED: text color to white */
+    flex-grow: 1; /* Allow text to take remaining space */
+}
+
+.create-ad-modal-content .account-type-option-btn p {
+    display: none;
+}
